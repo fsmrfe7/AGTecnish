@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AG TECNISH | Ingeniería & Soluciones Técnicas</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- AOS Animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --azul: #0a3d62;
+      --verde: #1abc9c;
+      --gris: #f4f6f8;
+      --oscuro: #1e272e;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--gris);
+      color: var(--oscuro);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(rgba(10,61,98,.85), rgba(10,61,98,.85)), url('https://images.unsplash.com/photo-1581091012184-7b2d3f0a8f89');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 120px 10%;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 10%;
+      background: rgba(10,61,98,0.95);
+      z-index: 1000;
+    }
+
+    nav h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--verde);
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      max-width: 600px;
+    }
+
+    .hero p {
+      margin: 20px 0;
+      max-width: 500px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: var(--verde);
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: all .3s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,.2);
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 35px rgba(0,0,0,.3);
+    }
+
+    section {
+      padding: 80px 10%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h3 {
+      font-size: 2.2rem;
+      color: var(--azul);
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: white;
+      padding: 35px;
+      border-radius: 15px;
+      box-shadow: 0 15px 40px rgba(0,0,0,.08);
+      transition: transform .3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    footer {
+      background: var(--azul);
+      color: white;
+      text-align: center;
+      padding: 40px 10%;
+    }
+
+    @media(max-width: 768px) {
+      .hero h2 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <h1>AG TECNISH</h1>
+    <ul>
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <h2 data-aos="fade-right">Ingeniería Mecatrónica aplicada a soluciones reales</h2>
+    <p data-aos="fade-right" data-aos-delay="200">Innovación técnica, mantenimiento industrial y asesoramiento profesional.</p>
+    <a href="#contacto" class="btn" data-aos="fade-up" data-aos-delay="400">Contáctanos</a>
+  </header>
+
+  <!-- NOSOTROS -->
+  <section id="nosotros">
+    <div class="section-title" data-aos="fade-up">
+      <h3>Quiénes Somos</h3>
+    </div>
+    <p data-aos="fade-up" style="max-width:800px;margin:auto;text-align:center;">
+      AG TECNISH es una startup especializada en innovaciones técnicas profesionales en sistemas mecatrónicos, instrumentación industrial, refrigeración y electricidad.
+    </p>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <div class="section-title" data-aos="fade-up">
+      <h3>Nuestros Servicios</h3>
+    </div>
+    <div class="services">
+      <div class="card" data-aos="zoom-in">
+        <h4>Instrumentación Industrial</h4>
+        <p>Medición, control y supervisión de procesos industriales.</p>
+      </div>
+      <div class="card" data-aos="zoom-in" data-aos-delay="150">
+        <h4>Refrigeración & AA/CC</h4>
+        <p>Mantenimiento y optimización de sistemas comerciales.</p>
+      </div>
+      <div class="card" data-aos="zoom-in" data-aos-delay="300">
+        <h4>Electricidad Residencial</h4>
+        <p>Instalaciones seguras y eficientes para hogares.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="section-title" data-aos="fade-up">
+      <h3>Contacto</h3>
+    </div>
+    <p style="text-align:center" data-aos="fade-up">📧 agtecnishst@gmail.com | 📞 0978718054</p>
+  </section>
+
+  <footer>
+    <p>© 2026 AG TECNISH – Todos los derechos reservados</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ once: true, duration: 900 });</script>
+
+</body>
+</html>
