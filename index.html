@@ -142,26 +142,131 @@
     @media(max-width: 768px) {
       .hero h2 { font-size: 2.2rem; }
     }
+    
+    
+    /* --- LOGO NAV --- */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.logo img {
+  height: 60px; /* ajusta tamaño del logo */
+  width: auto;
+}
+
+	  /* ====== CURSOS RECOMENDADOS ====== */
+
+  .card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    object-fit: cover;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 10px 18px;
+    background: #00c2ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    margin-top: 10px;
+    transition: 0.3s;
+  }
+
+  .btn:hover {
+    background: #009ecf;
+  }
+  
+  ----imagenes----
+  .card img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 15px 0;
+}
+
+-----mas imagenes ----
+.card-bg {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 25px;
+  overflow: hidden;
+}
+
+/* Capa oscura para que el texto se lea bien */
+.card-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.75),
+    rgba(0,0,0,0.2)
+  );
+  z-index: 0;
+}
+
+/* Texto por encima del fondo */
+.card-bg h4,
+.card-bg p {
+  position: relative;
+  z-index: 1;
+}
+
+.card-bg:hover {
+  transform: scale(1.03);
+}
+
+
+
+
+
   </style>
 </head>
 <body>
 
   <!-- NAV -->
   <nav>
-    <h1>AG TECNISH</h1>
-    <ul>
-      <li><a href="#">Inicio</a></li>
-      <li><a href="#nosotros">Nosotros</a></li>
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-  </nav>
+  <div class="logo">
+  <img src="logo.png" alt="Logo AG Tecnish">
+  <span>AG TECNISH</span>
+</div>
+
+  <ul>
+    <li><a href="#">🏠 Inicio</a></li>
+    <li><a href="#nosotros">👥 Nosotros</a></li>
+    <li><a href="#servicios">🛠️ Servicios</a></li>
+    <li><a href="#proyectos">📐 Proyectos</a></li>
+    <li><a href="#Noticiastecnológicas">📰 Noticias</a></li>
+    <li><a href="#Cursos"> 📚 Cursos</a></li>
+    <li><a href="#contacto">📞 Contacto</a></li>
+  </ul>
+</nav>
+
 
   <!-- HERO -->
   <header class="hero">
-    <h2 data-aos="fade-right">Ingeniería Mecatrónica aplicada a soluciones reales</h2>
+    <h2 data-aos="fade-right">Ingeniería Mecatrónica </h2>
     <p data-aos="fade-right" data-aos-delay="200">Innovación técnica, mantenimiento industrial y asesoramiento profesional.</p>
-    <a href="#contacto" class="btn" data-aos="fade-up" data-aos-delay="400">Contáctanos</a>
+    
   </header>
 
   <!-- NOSOTROS -->
@@ -169,8 +274,40 @@
     <div class="section-title" data-aos="fade-up">
       <h3>Quiénes Somos</h3>
     </div>
+    <video controls autoplay muted loop width="100%" poster="DALL·E 2024-09-04 20.07.30 - An image illustrating appliance maintenance services for AG TECNISH. The visual shows a technician repairing a washing machine, refrigerat.webp">
+  <source src="videoIOT.mp4" type="video/mp4">
+  
+</video>
+
     <p data-aos="fade-up" style="max-width:800px;margin:auto;text-align:center;">
-      AG TECNISH es una startup especializada en innovaciones técnicas profesionales en sistemas mecatrónicos, instrumentación industrial, refrigeración y electricidad.
+      AG TECNISH ES UNA STARTUP QUE SE ESPECIALIZA EN DIFERENTES INNOVACIONES TÉCNICAS PROFESIONALES EN SISTEMAS MECATRÓNICOS.
+    </p>
+  </section>
+   <div class="section-title" data-aos="fade-up">
+      <h3>Misión</h3>
+    </div>
+    <p data-aos="fade-up" style="max-width:800px;margin:auto;text-align:center;">
+      GESTIONAR NUESTROS CONOCIMIENTOS Y
+EXPERIENCIAS SOBRE LA INGENIERIA
+MECATRÓNICA Y LA GENERACIÓN DE FUENTES
+DE TRABAJO EN NUESTRO PAIS, CON EL
+OBJETIVO DE ORIENTAR LOS PROCESOS,
+ACTIVIDADES Y DECISIONES DE NUESTROS
+CLIENTES, TENIENDO SIEMPRE PRESENTE EL
+RESPETO A LA ÉTICA PROFESIONAL, LA
+CONSERVACIÓN DEL MEDIO AMBIENTE, LA
+SEGURIDAD Y LA SALUD DE LOS
+TRABAJADORES.
+<div class="section-title" data-aos="fade-up">
+		<h3>Visión</h3>
+<div> 
+MEJORAR LA EFICIENCIA, LA PRODUCTIVIDAD Y
+LA SEGURIDAD DE NUESTROS CLIENTES Y DE SU
+ENTORNO, SIENDO UNA STARTUP DE REFERENCIA
+EN NUESTRO PAIS.
+</div>
+
+
     </p>
   </section>
 
@@ -180,20 +317,155 @@
       <h3>Nuestros Servicios</h3>
     </div>
     <div class="services">
-      <div class="card" data-aos="zoom-in">
-        <h4>Instrumentación Industrial</h4>
-        <p>Medición, control y supervisión de procesos industriales.</p>
+		<data-aos="zoom-in">
+			<div class="card card-bg" style="background-image:url('azulmfondo.jpg');" data-aos="zoom-in">
+        <h4>Linea Blanca</h4>
+         <img src="electrodomesticos.jpg" alt="Linea Blanca">
+        <p>SE BASA EN UN CONJUNTO DE PROCESOS Y PRACTICAS
+ESPECIFICAS PARA GARANTIZAR EL FUNCIONAMIENTO
+OPTIMO DE LOS ELECTRODOMÉSTICOS Y CORREGIR
+CUALQUIER PROBLEMA QUE PUEDEN PRESENTAR.</p>
       </div>
-      <div class="card" data-aos="zoom-in" data-aos-delay="150">
+       <div data-aos="zoom-in" data-aos-delay="150">
+		   <div class="card card-bg" style="background-image:url('moradofondo.jpg');" data-aos="zoom-in">
         <h4>Refrigeración & AA/CC</h4>
-        <p>Mantenimiento y optimización de sistemas comerciales.</p>
+        <img src="refrigeracion.jpg" alt="Refrigeracion">
+        <p>SON PROCEDIMIENTOS ESPECIFICOS DISEÑADOS
+PARA GARANTIZAR EL CORRECTO FUNCIONAMIENTO
+DE LOS EQUIPOS DE REFRIGERACION Y AA/CC
+UTILIZADOS EN ENTORNOS COMERCIALES, COMO
+RESTAURANTES, HOTELES, STARBUCKS, ENTRE
+OTROS.</p>
       </div>
-      <div class="card" data-aos="zoom-in" data-aos-delay="300">
+      <div class="card" data-aos="zoom-in">
+		  <div class="card card-bg" style="background-image:url('amarillofondo.jpg');" data-aos="zoom-in">
+        <h4>Instrumentación Industrial</h4>
+        <img src="2260_622f5ee40c04a_large.webp" alt="Instrumentacion Industrial">
+        <p>SE BASA EN EL USO DE DISPOSITIVOS Y EQUIPOS
+ESPECIALIZADOS PARA MEDIR, CONTROLAR Y
+SUPERVISAR PROCESOS INDUSTRIALES EN DIVERSOS
+SECTORES COMO LA MANUFACTURA, LA
+PRODUCCIÓN DE ENERGIA, LA INDUSTRIA QUIMICA,
+ENTRE OTROS.</p>
+      </div>
+     <div  data-aos="zoom-in">
+		 <div class="card card-bg" style="background-image:url('azulfondo.jpg');" data-aos="zoom-in">
+        <h4>Maquinas a gas glp</h4>
+        <img src=" " alt= " Maquinas a Gas">
+        <p>SE BASAN EN UN SISTEMA DE COMBUSTIÓN QUE UTILIZA
+ESTE TIPO DE GAS COMO FUENTE DE ENERGIA. EL GLP ES
+UNA MEZCLA DE GASES LICUADOS COMPUESTA
+PRINCIPALMENTE POR PROPANO Y BUTANO, QUE SE
+ENCUENTRA EN ESTADO LIQUIDO A PRESION Y
+TEMPERATURA AMBIENTE.</p>
+      </div>
+      <div  data-aos="zoom-in">
+		  <div class="card card-bg" style="background-image:url('huesofondo.jpg');" data-aos="zoom-in">
+        <h4>Equipos de Reposteria</h4>
+        <img src="  "  alt="Reposteria">
+        <p>LA APLICACION DE PRINCIPIOS CULINARIOS Y
+TÉCNICOS PARA FACILITAR LA PREPARACIÓN
+EFICIENTE Y LA PRODUCCION EN MASA DE
+PRODUCTOS DULCES Y POSTRES TANTO EN
+ENTORNOS COMERCIALES COMO DOMESTICOS.</p>
+      </div>
+      <div  data-aos="zoom-in" data-aos-delay="300">
+		  <div class="card card-bg" style="background-image:url('chiclefondo.jpg');" data-aos="zoom-in">
         <h4>Electricidad Residencial</h4>
-        <p>Instalaciones seguras y eficientes para hogares.</p>
+        <img src="  " alt="Electricidad">
+        <p>LAS INSTALACIONES ELECTRICAS RESIDENCIALES SE
+BASAN EN EL DISEÑO E IMPLEMENTACIÓN DE SISTEMAS
+QUE PERMITEN LA DISTRIBUCIÓN SEGURA Y EFICIENTE DE
+LA ENERGIA ELÉCTRICA DENTRO DE LOS HOGARES, CON
+EL OBJETIVO DE SATISFACER LAS NECESIDADES DE
+ILUMINACIÓN, ELECTRODOMESTICOS Y OTROS EQUIPOS
+ELÉCTRICOS, AL TIEMPO QUE SE PRIORIZA LA SEGURIDAD
+DE LOS HABITANTES.</p>
+      </div>
+      <div  data-aos="zoom-in" data-aos-delay="300">
+		  <div class="card card-bg" style="background-image:url('violetafondo.jpg');" data-aos="zoom-in">
+        <h4>Impresion 3D</h4>
+        <video controls autoplay muted loop width="100%" poster="postervideo.jpg">
+  <source src="3dprint.mp4" type="video/mp4">
+  
+</video>
+        <p>
+La impresión 3D FDM (Modelado por Deposición Fundida) es un
+método aditivo que construye piezas capa por capa mediante la extrusión 
+de un filamento termoplástico derretido, ideal para prototipos,
+prototipado rápido y piezas funcionales. Es la tecnología más común, 
+asequible y versátil, utilizando materiales como PLA y ABS, y es 
+excelente para crear objetos de gran tamaño con una buena resistencia.
+</p>
       </div>
     </div>
   </section>
+  
+  <!-- PROYECTOS -->
+  <section id="proyectos">
+    <div class="section-title" data-aos="fade-up">
+      <h3>Proyectos</h3>
+    </div>
+    <div class="services">
+		<div class="card" data-aos="zoom-in">
+        <h4>DISEÑO CAD</h4>
+         <video controls autoplay muted loop width="100%" poster="postervideo.jpg">
+  <source src="videodiseño3D.mp4" type="video/mp4">
+  
+</video>
+        <p>El diseño CAD (
+Diseño Asistido por Computadora) utiliza software especializado para crear, 
+modificar, analizar y optimizar representaciones gráficas 2D o 3D de objetos 
+físicos. Sustituye el dibujo manual, mejorando la precisión y eficiencia en
+industrias como la arquitectura, ingeniería y manufactura, facilitando la 
+visualización antes de la producción.</p> </div> </div>
+      
+  <!-- NOTICIAS TECNOLOGICAS -->
+  <section id="Noticiastecnológicas">
+    <div class="section-title" data-aos="fade-up">
+      <h3>Noticias Tecnológicas</h3>
+    </div>
+    <div class="services">
+		<div class="card" data-aos="zoom-in">
+        <h4>OpenAI lanza su primer modelo con chips de Cerebras y amplía su 
+        apuesta más allá de Nvidia</h4>
+        <p>
+        El modelo, GPT-5.3-cODEX-sPARK, pretende ser una versión menos potente pero más rápida
+de su software Codex más reciente para automatizar la codificación. La opción Spark, cuyo lanzamiento 
+está previsto para el jueves, permite a los ingenieros de software completar rápidamente tareas como la
+ edición de trozos especificos de código y la ejecución de pruebas.
+	</p>
+      </div> </div>
+      
+     <!-- CURSOS -->
+<section id="Cursos">
+  <div class="section-title" data-aos="fade-up">
+    <h3>Cursos Recomendados</h3>
+  </div>
+
+  <div class="services">
+
+    <div class="card" data-aos="zoom-in">
+      <img src="platzy.jpg" alt="Platzy">
+
+      <h4>Nunca pares de aprender</h4>
+
+      <p>
+      Recomiendo todos los cursos en absoluto, he tomando sus cursos 
+      y me han ayudado a desarrollar profesionalmente. Ingresa con mi 
+      link de referidos y tambien encontraras diversos cursos gratuitos. 
+      </p>
+
+      <a href="https://platzi.com/r/agtecnishst"
+         target="_blank"
+         class="btn">
+         Ver curso
+      </a>
+    </div>
+
+  </div>
+</section>
+
 
   <!-- CONTACTO -->
   <section id="contacto">
@@ -201,14 +473,19 @@
       <h3>Contacto</h3>
     </div>
     <p style="text-align:center" data-aos="fade-up">📧 agtecnishst@gmail.com | 📞 0978718054</p>
-  </section>
-
+    <div style="text-align:center; margin-top:30px;" data-aos="zoom-in">
+  <a 
+    href="https://wa.me/593978718054?text=Hola%20AG%20TECNISH,%20quiero%20información%20sobre%20sus%20servicios"
+    target="_blank"
+    class="btn">
+    💬 Escríbenos por WhatsApp
+  </a>
+</div>
+ 
   <footer>
     <p>© 2026 AG TECNISH – Todos los derechos reservados</p>
   </footer>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init({ once: true, duration: 900 });</script>
 
 </body>
 </html>
