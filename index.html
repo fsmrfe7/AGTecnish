@@ -170,7 +170,7 @@
 
     /* --- RESPONSIVE / CELULARES --- */
     @media(max-width: 992px) {
-      .menu-toggle { display: flex; order: -1; } /* Mueve el botón a la izquierda */
+      .menu-toggle { display: flex; order: 1; } /* Mueve el botón a la izquierda */
       
       nav ul {
         display: none; /* Se oculta inicialmente */
@@ -354,11 +354,25 @@
   </section>
 
   <footer>
-    <p>© 2026 AG TECNISH – Todos los derechos reservados</p>
-  </footer>
+  <p>© 2026 AG TECNISH – Todos los derechos reservados</p>
+  <p><a href="#modal-datos" style="color: var(--verde); text-decoration: none; font-size: 0.8rem;">Aviso de Privacidad y Protección de Datos (LOPDP Ecuador)</a></p>
+</footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
+    // Abrir aviso legal
+document.querySelector('a[href="#modal-datos"]').addEventListener('click', function(e) {
+  e.preventDefault();
+  document.getElementById('modal-datos').style.display = 'block';
+});
+
+// Cerrar al hacer clic fuera del cuadro blanco
+window.onclick = function(event) {
+  let modal = document.getElementById('modal-datos');
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
     AOS.init({ duration: 1000, once: true });
 
     // Lógica para el menú desplegable en celulares
@@ -376,5 +390,26 @@
       });
     });
   </script>
+  <div id="modal-datos" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:2000; padding:20px;">
+  <div style="background:white; max-width:600px; margin:50px auto; padding:30px; border-radius:15px; max-height:80vh; overflow-y:auto; position:relative;">
+    <span onclick="document.getElementById('modal-datos').style.display='none'" style="position:absolute; top:10px; right:20px; cursor:pointer; font-size:25px;">&times;</span>
+    
+    <h3 style="color:var(--azul);">Protección de Datos Personales</h3>
+    <br>
+   <p style="font-size:0.9rem; text-align:justify;">
+  En cumplimiento con lo establecido en la <strong>Constitución de la República del Ecuador</strong> (Art. 66, num. 19) y la <strong>Ley Orgánica de Protección de Datos Personales (LOPDP)</strong>, AG TECNISH informa:
+  <br><br>
+  <strong>1. Fundamento Legal:</strong> Este aviso se redacta bajo el amparo del derecho a la protección de datos de carácter personal, que incluye el acceso y la decisión sobre información y datos de este tipo, así como su correspondiente protección (Art. 66.19 de la Constitución).
+  <br><br>
+  <strong>2. Finalidad:</strong> Los datos que nos proporcione vía WhatsApp o correo electrónico serán utilizados exclusivamente para gestionar su solicitud de servicios técnicos o información de cursos, conforme al principio de finalidad de la LOPDP.
+  <br><br>
+  <strong>3. Consentimiento y Derechos:</strong> Al contactarnos, usted otorga su consentimiento libre y voluntario. De acuerdo con el <strong>Art. 92 de la Constitución</strong>, usted tiene derecho a conocer la existencia y acceder a sus datos, así como a solicitar su actualización, rectificación o eliminación escribiéndonos a <strong>agtecnishst@gmail.com</strong>.
+  <br><br>
+  Nos comprometemos a mantener la confidencialidad y seguridad técnica de su información, garantizando que el tratamiento de sus datos sea lícito, transparente y seguro.
+</p>
+    <br>
+    <button onclick="document.getElementById('modal-datos').style.display='none'" class="btn" style="width:100%;">Entendido</button>
+  </div>
+</div>
 </body>
 </html>
