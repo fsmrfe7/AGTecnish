@@ -27,7 +27,6 @@
       background: var(--gris);
       color: var(--oscuro);
       line-height: 1.6;
-      /* Añadimos un padding superior para que el contenido no quede oculto bajo el nav fijo */
       padding-top: 80px; 
     }
 
@@ -40,9 +39,10 @@
       top: 0;
       left: 0;
       width: 100%;
-      padding: 10px 10%;
-      background: rgba(10, 61, 98, 0.95);
+      padding: 10px 5%;
+      background: rgba(10, 61, 98, 0.98);
       z-index: 1000;
+      height: 80px;
     }
 
     .logo {
@@ -51,27 +51,45 @@
       gap: 10px;
       color: white;
       font-weight: bold;
-      font-size: 22px;
+      font-size: 20px;
     }
 
     .logo img {
-      height: 60px;
+      height: 50px;
       width: auto;
     }
 
+    /* Menú Desktop */
     nav ul {
       list-style: none;
       display: flex;
-      gap: 25px;
+      gap: 20px;
     }
 
     nav a {
       color: white;
       text-decoration: none;
       font-weight: 500;
+      font-size: 0.9rem;
+      transition: 0.3s;
     }
 
     nav a:hover { color: var(--verde); }
+
+    /* Botón Hamburguesa (Oculto por defecto) */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .menu-toggle span {
+      width: 30px;
+      height: 3px;
+      background: white;
+      border-radius: 2px;
+    }
 
     /* --- HERO --- */
     header.hero {
@@ -79,52 +97,50 @@
       background-size: cover;
       background-position: center;
       color: white;
-      padding: 120px 10%;
+      padding: 100px 10%;
+      text-align: center;
     }
 
-    .hero h2 { font-size: 3rem; max-width: 600px; }
-    .hero p { margin: 20px 0; max-width: 500px; }
+    .hero h2 { font-size: 2.8rem; margin: auto; }
+    .hero p { margin: 20px auto; max-width: 600px; }
 
     /* --- SECCIONES --- */
-    section { padding: 80px 10%; }
-    .section-title { text-align: center; margin-bottom: 60px; }
+    section { padding: 60px 10%; }
+    .section-title { text-align: center; margin-bottom: 50px; }
     .section-title h3 { font-size: 2.2rem; color: var(--azul); }
 
     .services {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
     }
 
     /* --- CARDS --- */
     .card {
       background: white;
       border-radius: 15px;
-      box-shadow: 0 15px 40px rgba(0,0,0,.08);
-      transition: transform .3s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: 0.3s;
       overflow: hidden;
     }
-
-    .card:hover { transform: translateY(-8px); }
 
     .card-bg {
       position: relative;
       background-size: cover;
       background-position: center;
-      color: white;
-      min-height: 450px; /* Ajustado para que quepa todo tu texto */
+      min-height: 400px;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       padding: 25px;
+      color: white;
     }
 
     .card-bg::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.3));
-      z-index: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.2));
     }
 
     .card-bg h4, .card-bg p, .card-bg img, .card-bg video {
@@ -134,44 +150,62 @@
 
     .card img {
       width: 100%;
-      max-height: 180px;
+      height: 180px;
       object-fit: cover;
       border-radius: 10px;
-      margin: 15px 0;
+      margin: 10px 0;
     }
 
     .btn {
       display: inline-block;
-      padding: 12px 28px;
+      padding: 10px 20px;
       background: #00c2ff;
       color: white;
-      border-radius: 30px;
+      border-radius: 5px;
       text-decoration: none;
-      transition: all .3s ease;
-      margin-top: 15px;
+      margin-top: 10px;
     }
 
-    footer {
-      background: var(--azul);
-      color: white;
-      text-align: center;
-      padding: 40px 10%;
-    }
+    footer { background: var(--azul); color: white; text-align: center; padding: 30px; }
 
-    @media(max-width: 768px) {
-      .hero h2 { font-size: 2.2rem; }
-      nav ul { display: none; } /* En móviles el menú requiere un botón, por ahora lo ocultamos para que no tape el logo */
+    /* --- RESPONSIVE / CELULARES --- */
+    @media(max-width: 992px) {
+      .menu-toggle { display: flex; order: -1; } /* Mueve el botón a la izquierda */
+      
+      nav ul {
+        display: none; /* Se oculta inicialmente */
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: rgba(10, 61, 98, 0.98);
+        padding: 20px;
+        text-align: center;
+        gap: 15px;
+      }
+
+      nav ul.active { display: flex; } /* Se muestra al hacer clic */
+      
+      .hero h2 { font-size: 2rem; }
     }
   </style>
 </head>
 <body>
 
   <nav>
+    <div class="menu-toggle" id="mobile-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
     <div class="logo">
       <img src="logo.png" alt="Logo AG Tecnish">
       <span>AG TECNISH</span>
     </div>
-    <ul>
+
+    <ul id="nav-list">
       <li><a href="#">🏠 Inicio</a></li>
       <li><a href="#nosotros">👥 Nosotros</a></li>
       <li><a href="#servicios">🛠️ Servicios</a></li>
@@ -192,11 +226,11 @@
       <h3>Quiénes Somos</h3>
     </div>
     
-    <video controls autoplay muted loop width="100%" poster="DALL·E...webp" style="border-radius:15px; margin-bottom:30px;">
+    <video controls autoplay muted loop width="100%" poster="DALL·E...webp" style="border-radius:15px; margin-bottom:20px;">
       <source src="videoIOT.mp4" type="video/mp4">
     </video>
 
-    <p data-aos="fade-up" style="max-width:800px;margin:20px auto;text-align:center; font-weight:bold;">
+    <p data-aos="fade-up" style="max-width:800px;margin:20px auto;text-align:center; font-weight: 600;">
       AG TECNISH ES UNA STARTUP QUE SE ESPECIALIZA EN DIFERENTES INNOVACIONES TÉCNICAS PROFESIONALES EN SISTEMAS MECATRÓNICOS.
     </p>
 
@@ -241,25 +275,25 @@
 
       <div class="card card-bg" style="background-image:url('azulfondo.jpg');" data-aos="zoom-in">
         <h4>Maquinas a gas glp</h4>
-        <img src="placeholder.jpg" alt="Maquinas a Gas">
+        <img src=" " alt= " Maquinas a Gas">
         <p>SE BASAN EN UN SISTEMA DE COMBUSTIÓN QUE UTILIZA ESTE TIPO DE GAS COMO FUENTE DE ENERGIA. EL GLP ES UNA MEZCLA DE GASES LICUADOS COMPUESTA PRINCIPALMENTE POR PROPANO Y BUTANO, QUE SE ENCUENTRA EN ESTADO LIQUIDO A PRESION Y TEMPERATURA AMBIENTE.</p>
       </div>
 
       <div class="card card-bg" style="background-image:url('huesofondo.jpg');" data-aos="zoom-in">
         <h4>Equipos de Reposteria</h4>
-        <img src="placeholder.jpg" alt="Reposteria">
+        <img src="  "  alt="Reposteria">
         <p>LA APLICACION DE PRINCIPIOS CULINARIOS Y TÉCNICOS PARA FACILITAR LA PREPARACIÓN EFICIENTE Y LA PRODUCCION EN MASA DE PRODUCTOS DULCES Y POSTRES TANTO EN ENTORNOS COMERCIALES COMO DOMESTICOS.</p>
       </div>
 
       <div class="card card-bg" style="background-image:url('chiclefondo.jpg');" data-aos="zoom-in">
         <h4>Electricidad Residencial</h4>
-        <img src="placeholder.jpg" alt="Electricidad">
+        <img src="  " alt="Electricidad">
         <p>LAS INSTALACIONES ELECTRICAS RESIDENCIALES SE BASAN EN EL DISEÑO E IMPLEMENTACIÓN DE SISTEMAS QUE PERMITEN LA DISTRIBUCIÓN SEGURA Y EFICIENTE DE LA ENERGIA ELÉCTRICA DENTRO DE LOS HOGARES, CON EL OBJETIVO DE SATISFACER LAS NECESIDADES DE ILUMINACIÓN, ELECTRODOMESTICOS Y OTROS EQUIPOS ELÉCTRICOS, AL TIEMPO QUE SE PRIORIZA LA SEGURIDAD DE LOS HABITANTES.</p>
       </div>
 
       <div class="card card-bg" style="background-image:url('violetafondo.jpg');" data-aos="zoom-in">
         <h4>Impresion 3D</h4>
-        <video controls autoplay muted loop width="100%" poster="postervideo.jpg" style="border-radius:10px; margin:10px 0;">
+        <video controls autoplay muted loop width="100%" poster="postervideo.jpg">
           <source src="3dprint.mp4" type="video/mp4">
         </video>
         <p>La impresión 3D FDM (Modelado por Deposición Fundida) es un método aditivo que construye piezas capa por capa mediante la extrusión de un filamento termoplástico derretido, ideal para prototipos, prototipado rápido y piezas funcionales.</p>
@@ -273,13 +307,13 @@
       <h3>Proyectos</h3>
     </div>
     <div class="services">
-      <div class="card" data-aos="zoom-in" style="padding:20px;">
+        <div class="card" data-aos="zoom-in" style="padding:20px;">
         <h4>DISEÑO CAD</h4>
-        <video controls autoplay muted loop width="100%" poster="postervideo.jpg" style="border-radius:10px; margin:15px 0;">
+        <video controls autoplay muted loop width="100%" poster="postervideo.jpg">
           <source src="videodiseño3D.mp4" type="video/mp4">
         </video>
-        <p>El diseño CAD (Diseño Asistido por Computadora) utiliza software especializado para crear, modificar, analizar y optimizar representaciones gráficas 2D o 3D de objetos físicos. Sustituye el dibujo manual, mejorando la precisión y eficiencia en industrias como la arquitectura, ingeniería y manufactura, facilitando la visualización antes de la producción.</p>
-      </div>
+        <p>El diseño CAD (Diseño Asistido por Computadora) utiliza software especializado para crear, modificar, analizar y optimizar representaciones gráficas 2D o 3D de objetos físicos. Sustituye el dibujo manual, mejorando la precisión y eficiencia en industrias como la arquitectura, ingeniería y manufactura, facilitando la visualización antes de la producción.</p> 
+        </div> 
     </div>
   </section>
 
@@ -288,10 +322,10 @@
       <h3>Noticias Tecnológicas</h3>
     </div>
     <div class="services">
-      <div class="card" data-aos="zoom-in" style="padding:25px;">
+        <div class="card" data-aos="zoom-in" style="padding:25px;">
         <h4>OpenAI lanza su primer modelo con chips de Cerebras y amplía su apuesta más allá de Nvidia</h4>
         <p>El modelo, GPT-5.3-cODEX-sPARK, pretende ser una versión menos potente pero más rápida de su software Codex más reciente para automatizar la codificación. La opción Spark, cuyo lanzamiento está previsto para el jueves, permite a los ingenieros de software completar rápidamente tareas como la edición de trozos especificos de código y la ejecución de pruebas.</p>
-      </div>
+      </div> 
     </div>
   </section>
 
@@ -301,7 +335,7 @@
     </div>
     <div class="services">
       <div class="card" data-aos="zoom-in" style="padding:25px; text-align:center;">
-        <img src="platzy.jpg" alt="Platzy" style="max-width:200px; margin:auto;">
+        <img src="platzy.jpg" alt="Platzy" style="max-width:150px; margin:auto;">
         <h4>Nunca pares de aprender</h4>
         <p>Recomiendo todos los cursos en absoluto, he tomando sus cursos y me han ayudado a desarrollar profesionalmente. Ingresa con mi link de referidos y tambien encontraras diversos cursos gratuitos.</p>
         <a href="https://platzi.com/r/agtecnishst" target="_blank" class="btn">Ver curso</a>
@@ -315,9 +349,7 @@
     </div>
     <p style="text-align:center" data-aos="fade-up">📧 agtecnishst@gmail.com | 📞 0978718054</p>
     <div style="text-align:center; margin-top:30px;" data-aos="zoom-in">
-      <a href="https://wa.me/593978718054?text=Hola%20AG%20TECNISH,%20quiero%20información%20sobre%20sus%20servicios" target="_blank" class="btn">
-        💬 Escríbenos por WhatsApp
-      </a>
+      <a href="https://wa.me/593978718054?text=Hola%20AG%20TECNISH,%20quiero%20información%20sobre%20sus%20servicios" target="_blank" class="btn">💬 Escríbenos por WhatsApp</a>
     </div>
   </section>
 
@@ -327,9 +359,21 @@
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({
-      duration: 1000,
-      once: true
+    AOS.init({ duration: 1000, once: true });
+
+    // Lógica para el menú desplegable en celulares
+    const menuToggle = document.getElementById('mobile-menu');
+    const navList = document.getElementById('nav-list');
+
+    menuToggle.addEventListener('click', () => {
+      navList.classList.toggle('active');
+    });
+
+    // Cerrar menú al hacer clic en un enlace
+    document.querySelectorAll('#nav-list a').forEach(link => {
+      link.addEventListener('click', () => {
+        navList.classList.remove('active');
+      });
     });
   </script>
 </body>
